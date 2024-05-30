@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Capture and Recognition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            overflow-y: auto; /* Enable vertical scrollbar */
+            max-height: 400px; /* Adjust height as needed */
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #message {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Face Recognition</h1>
+    </header>
+
+    <div class="container">
+        <div class="title">
+            <h2>Face Capture</h2>
+        </div>
+        <form id="captureForm" action="/capture" method="post">
+            <label for="name">Enter your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Capture</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <h2>Face Recognition Preprocessing & Training</h2>
+        </div>
+        <form id="preprocessForm" action="/preprocess" method="post">
+            <button type="submit">Preprocess Images</button>
+        </form>
+
+        <form id="trainForm" action="/train" method="post">
+            <button type="submit">Train Model</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="title">
+            <h2>Recognize</h2>
+        </div>
+        <form id="recognizeForm" action="/recognize" method="post">
+            <button type="submit">Recognize</button>
+        </form>
+    </div>
+
+    
+    <div id="message"></div>
+
+    <script>
+        // Add JavaScript code here if needed
+        // This script can be used to display messages from the server
+        function showMessage(message) {
+            document.getElementById("message").innerText = message;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRUTAL INSIGHT</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        header, footer {
+            background-color: #333; /* Same background color for header and footer */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            color: #fff;
+            font-size: 36px;
+        }
+
+        header p {
+            color: #fff;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 50px;
+            margin-top: 20px; /* Add margin-top to create space between header and image */
+        }
+
+        .button-container {
+            position: absolute;
+            top: 20px;
+            display: flex;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .button-container button {
+            padding: 15px 30px;
+            font-size: 20px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            background-color: #87CEEB;
+            color: #000;
+            cursor: pointer;
+            margin: 0 10px;
+            animation: blink-animation 1s infinite alternate; /* Add blinking animation */
+        }
+
+        @keyframes blink-animation {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .button-container button:hover {
+            background-color: #4682B4;
+            color: #fff;
+            animation: none; /* Disable blinking on hover */
+        }
+
+        img.image-between-buttons {
+            width: 80%; /* Adjust image width */
+            position: relative;
+            z-index: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Virtual Insight</h1>
+    <p>Decoding Human Identity</p>
+</header>
+
+<div class="container">
+    
+    <div class="button-container">
+        <button id="button1" onclick="window.location.href='/next'">Face Recognition</button>
+        <button id="button2" onclick="window.location.href='/second'">Face Recognition</button>
+
+    </div>
+<img class="image-between-buttons" src="{{ url_for('static', filename='images/faceback1.jpg') }}" alt="Image">
+</div>
+
+<!-- Footer -->
+<footer>
+    <p> This project implements facial recognition for face recognization</p>
+</footer>
+
+</body>
+</html>

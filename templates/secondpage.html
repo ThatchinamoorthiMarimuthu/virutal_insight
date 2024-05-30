@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #background-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #content {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            z-index: 1; /* Ensure content is above the image */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        #welcome-line {
+            margin-top: 20px;
+        }
+
+        #recognize button {
+            border-radius: 10px; /* Rounded corners */
+            width: 150px;
+            height: 50px;
+            background-color: #28a745; /* Green color */
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        #recognize button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div id="background-container">
+        <img id="background-image" src="{{ url_for('static', filename='images/emoi1.jpg') }}" alt="Background Image">
+        <div id="content">
+            <h1 id="welcome-line">Welcome to Emotion Recognition</h1>
+            <p>Emotions play a crucial role in our lives. They influence our thoughts, behaviors, and interactions with others. Click the button below to recognize and explore different emotions.</p>
+            <form id="recognize" action="/emoreg" method="post">
+                <button type="submit">Recognize</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
